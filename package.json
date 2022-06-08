@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/shingchan95/week12-course-work#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "inquirer": "^8.2.4",
     "mysql2": "^2.3.3"
   }
