@@ -1,5 +1,6 @@
 INSERT INTO department (department_name)
-VALUES ("Service");
+VALUES ("Service"),
+       ("Engineer");
 
   
 INSERT INTO employee_role (job_title, salary, department_id)

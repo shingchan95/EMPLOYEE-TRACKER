@@ -1,4 +1,5 @@
 const { viewAllDepartments, viewAllRoles, viewAllEmployees, addDepartment, addRole, addEmployee, updateEmployeeRole} = require("./lib/menu-functions")
+
 calling()
 
 function calling(){
@@ -14,25 +15,32 @@ function calling(){
 ]) 
     .then((answer) => {
         if (answer.menu == "View All Employees"){
-            viewAllDepartments()    
-
+            viewAllEmployees()
+            calling()
+            
         }if (answer.menu == "View All Roles"){        
             viewAllRoles()
-
+            calling()
+            
         }if (answer.menu == "View All Department"){
-            viewAllEmployees()
+            viewAllDepartments()    
+            calling()
 
         }if (answer.menu == "Add Employee"){
-            addEmployee()     
+            addEmployee()  
+            calling()   
 
         }if (answer.menu == "Add Role"){
             addRole()
+            calling()
 
         }if (answer.menu == "Add Department"){
             addDepartment()
+            calling()
 
         }if (answer.menu == "Update Employee Role"){
             updateEmployeeRole()
+            calling()
 
         }if (answer.menu == "Quit"){
             return
