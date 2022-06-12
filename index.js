@@ -4,11 +4,11 @@ const {connect_mysql, viewAllDepartments, viewAllRoles, viewAllEmployees, addDep
 function calling(){
 
 
+    const inquirer = require('inquirer');
     const all_departments=[];
     const all_roles=[];
     const all_employeename=[{value:0, name:"NONE"}];
     
-    const inquirer = require('inquirer');
     inquirer
      .prompt([
         {name:"menu",
@@ -46,10 +46,11 @@ function calling(){
         }if (answer.menu == "Update Employee Role"){
             renderAllEmployees()
             renderAllRoles()
+      
+            updateemployeeresponse()
           
 
 
-            updateemployeeresponse()
             
         }if (answer.menu == "Quit"){
             process.exit();
@@ -147,12 +148,18 @@ function calling(){
             
         })
     }
-    let updateemployeeresponse = ()=>{
+
+
+    let updateemployeeresponse = () =>{ 
         inquirer
         .prompt([
-            {name:"name_pick",
+            {name:"update_reference",
+            type: "input",
+            message: "Plense enter the update reference?",
+            },
+            {name:"employee_pick",
             type: "list",
-            message: " Which employee's role do you want to update?",
+            message: "Which employee's role do you want to update?",
             choices: all_employeename,
             },
 
@@ -164,8 +171,9 @@ function calling(){
         ]) 
     
         .then ((answers) => {   
-
-            updateEmployeeRole(answers.name_pick,answers.role_pick)
+            console.log(answers.role_pick)
+            console.log(answers.employee_pick)
+            updateEmployeeRole(answers.role_pick,answers.employee_pick)
 
             calling()
         })
@@ -190,6 +198,7 @@ function calling(){
         
             let temp_pushlist=[];
             
+            
             for(i=0; i< results.length; i++){
                 temp_pushlist.push(results[i])
             }
@@ -208,6 +217,7 @@ function calling(){
         
             let temp_pushlist=[];
             
+            
             for(i=0; i< results.length; i++){
                 temp_pushlist.push(results[i])
             }
@@ -215,8 +225,8 @@ function calling(){
             for (i=0; i< results.length; i++){
                 let popped_name = temp_pushlist.pop()
                 all_employeename.push(popped_name)
+
             }
-        
         });
     }
    
