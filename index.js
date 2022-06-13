@@ -103,9 +103,8 @@ function calling(){
                 if(results[i].department_name == answers.add_department){
                     department_id=results[i].id
                     addRole(answers.add_name, answers.add_salary, department_id)
-                    break
+                    calling()
                 }
-                calling()
                 }
             });
     
